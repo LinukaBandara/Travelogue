@@ -23,7 +23,8 @@ export default function CustomCursor() {
     };
 
     const isInteractive = (target) =>
-      target instanceof Element && target.closest("a, button, input, select, textarea, [data-cursor-hover]");
+      target instanceof Element &&
+      target.closest("a, button, input, select, textarea, [data-cursor-hover]");
 
     const over = (e) => setHovering(Boolean(isInteractive(e.target)));
     const out = (e) => {
@@ -45,34 +46,16 @@ export default function CustomCursor() {
   if (!enabled) return null;
 
   return (
-    <>
-      <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[999] rounded-full bg-white"
-        style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
-        animate={{ width: hovering ? 5 : 4, height: hovering ? 5 : 4 }}
-        transition={{ duration: 0.12 }}
-      />
-
-      <motion.div
-        className="pointer-events-none fixed left-0 top-0 z-[998] rounded-full border border-white/80"
-        style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
-        animate={{
-          width: hovering ? 42 : 22,
-          height: hovering ? 42 : 22,
-          opacity: hovering ? 1 : 0.5,
-          rotate: hovering ? 45 : 0,
-        }}
-        transition={{ duration: 0.16, ease: [0.22, 1, 0.36, 1] }}
-      />
-
-      {hovering && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.7 }}
-          animate={{ opacity: 0.35, scale: 1 }}
-          className="pointer-events-none fixed left-0 top-0 z-[997] w-14 h-14 rounded-full border border-mint/50"
-          style={{ x: cursorX, y: cursorY, translateX: "-50%", translateY: "-50%" }}
-        />
-      )}
-    </>
+    <motion.div
+      className="pointer-events-none fixed left-0 top-0 z-[999] rounded-full bg-white"
+      style={{
+        x: cursorX,
+        y: cursorY,
+        translateX: "-50%",
+        translateY: "-50%",
+      }}
+      animate={{ width: hovering ? 6 : 4, height: hovering ? 6 : 4 }}
+      transition={{ duration: 0.12, ease: "easeOut" }}
+    />
   );
 }
