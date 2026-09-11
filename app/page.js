@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import CinematicHero from "@/components/CinematicHero";
 import { destinations } from "@/lib/destinations";
@@ -35,7 +36,14 @@ export default function Home() {
 
       {/* BANNER */}
       <section className="relative h-[46vh] my-20">
-        <img src="/images/maldives.webp" alt="" className="absolute inset-0 w-full h-full object-cover" />
+        <Image
+          src="/images/maldives.webp"
+          alt="Aerial view of the Maldives islands and lagoon"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-arctic via-arctic/40 to-arctic/10" />
         <div className="relative h-full flex items-end mx-auto max-w-6xl px-6 pb-10">
           <p className="font-display text-2xl md:text-3xl text-white max-w-md">
@@ -45,21 +53,21 @@ export default function Home() {
       </section>
 
       {/* CINEMATIC FEEDS */}
-      <section id="feeds" className="mx-auto max-w-6xl px-6 py-10">
+      <section id="feeds" className="mx-auto max-w-6xl px-6 py-10 scroll-mt-28">
         <div className="flex items-baseline justify-between mb-8">
           <h2 className="font-display text-2xl md:text-3xl">Cinematic feeds</h2>
           <span className="text-xs text-slateSoft">unedited, on location</span>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-          <img src="/images/bangkok.webp" alt="" className="rounded-xl w-full h-48 object-cover col-span-2 md:col-span-1" />
-          <img src="/images/singapore.webp" alt="" className="rounded-xl w-full h-48 object-cover" />
-          <img src="/images/srilanka.webp" alt="" className="rounded-xl w-full h-48 object-cover" />
-          <img src="/images/india.webp" alt="" className="rounded-xl w-full h-48 object-cover" />
+          <Image src="/images/bangkok.webp" alt="Bangkok street scene" width={800} height={600} sizes="(max-width: 768px) 50vw, 25vw" className="rounded-xl w-full h-48 object-cover col-span-2 md:col-span-1" />
+          <Image src="/images/singapore.webp" alt="Singapore city scene" width={800} height={600} sizes="(max-width: 768px) 50vw, 25vw" className="rounded-xl w-full h-48 object-cover" />
+          <Image src="/images/srilanka.webp" alt="Sri Lankan landscape" width={800} height={600} sizes="(max-width: 768px) 50vw, 25vw" className="rounded-xl w-full h-48 object-cover" />
+          <Image src="/images/india.webp" alt="Indian travel scene" width={800} height={600} sizes="(max-width: 768px) 50vw, 25vw" className="rounded-xl w-full h-48 object-cover" />
         </div>
       </section>
 
       {/* PACKAGES */}
-      <section id="packages" className="mx-auto max-w-6xl px-6 py-20">
+      <section id="packages" className="mx-auto max-w-6xl px-6 py-20 scroll-mt-28">
         <div className="flex items-baseline justify-between mb-8">
           <h2 className="font-display text-2xl md:text-3xl">Every destination, priced</h2>
         </div>
@@ -84,6 +92,20 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ABOUT */}
+      <section id="about" className="mx-auto max-w-6xl px-6 py-20 scroll-mt-28 border-t border-white/10">
+        <div className="grid md:grid-cols-2 gap-10 items-start">
+          <div>
+            <p className="text-xs font-semibold text-mint tracking-wide mb-4">ABOUT TRAVELOGUE</p>
+            <h2 className="font-display text-3xl md:text-4xl leading-tight">A trip should feel like a story, not a spreadsheet.</h2>
+          </div>
+          <div className="text-sm text-slateSoft leading-relaxed space-y-4">
+            <p>Travelogue turns carefully selected destinations into considered, day-by-day journeys. Each route is built around pace, place, timing, and the moments worth remembering.</p>
+            <p>Choose a destination, explore the itinerary, then send a request. A coordinator reviews the details before anything is confirmed.</p>
+          </div>
         </div>
       </section>
     </div>
