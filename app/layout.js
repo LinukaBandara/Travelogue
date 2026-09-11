@@ -14,8 +14,22 @@ import CheckoutDrawer from "@/components/CheckoutDrawer";
 import { DrawerProvider } from "@/lib/DrawerContext";
 
 export const metadata = {
-  title: "Travelogue — Cinematic Trip Planning",
-  description: "A cinematic way to plan a trip — curated destinations, real itineraries, one seamless booking flow.",
+  title: {
+    default: "Travelogue — Cinematic Trip Planning",
+    template: "%s | Travelogue",
+  },
+  description: "A cinematic way to plan a trip across Asia — curated destinations, real itineraries, and one seamless booking request flow.",
+  keywords: ["Asia travel", "Japan travel", "Sri Lanka travel", "Maldives travel", "Thailand travel", "cinematic travel planning"],
+  metadataBase: new URL("https://travelogue-asia.vercel.app"),
+  openGraph: {
+    title: "Travelogue — Cinematic Trip Planning",
+    description: "Curated destinations and considered itineraries across Asia.",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({ children }) {
