@@ -12,13 +12,13 @@ export default function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="mx-auto max-w-6xl px-4 md:px-6 pt-6 pb-8 md:h-[calc(100svh-7rem)] md:min-h-0 flex flex-col">
-        <div className="max-w-xl mb-6 md:mb-7 shrink-0">
+      <section className="mx-auto max-w-6xl px-4 md:px-6 pt-6 pb-10">
+        <div className="max-w-xl mb-10">
           <div className="text-xs font-semibold text-mint tracking-wide mb-4">SEVEN DESTINATIONS · ONE CINEMATIC ITINERARY</div>
           <h1 className="font-display text-4xl md:text-6xl font-medium leading-tight mb-5">
             Asia, <span className="text-mint">shot</span> like a film.
           </h1>
-          <p className="text-slateSoft text-base leading-relaxed mb-6 md:mb-7">
+          <p className="text-slateSoft text-base leading-relaxed mb-8">
             Travelogue plans trips across Japan, Indonesia, Sri Lanka, Thailand, the Maldives, Singapore, and India — timed light, considered routes, and a single coordinator running the whole production.
           </p>
           <div className="flex flex-wrap gap-3">
