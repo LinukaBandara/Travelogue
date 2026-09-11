@@ -36,7 +36,7 @@ export default function CinematicHero() {
             >
               <motion.img
                 src={d.image}
-                alt=""
+                alt={`${d.name}, ${d.country}`}
                 className="absolute inset-0 w-full h-full object-cover"
                 animate={{
                   scale: isActive ? 1.06 : 1,
@@ -48,25 +48,13 @@ export default function CinematicHero() {
 
               <div className="absolute left-4 right-4 bottom-4 flex items-end justify-between gap-2">
                 <div>
-                  <span
-                    className={`block text-[10px] font-semibold text-mint mb-1.5 transition-opacity duration-300 ${
-                      isActive ? "opacity-100" : "opacity-0"
-                    }`}
-                  >
+                  <span className={`block text-[10px] font-semibold text-mint mb-1.5 transition-opacity duration-300 ${isActive ? "opacity-100" : "opacity-0"}`}>
                     {d.duration.toUpperCase()} · FROM ${d.price}
                   </span>
-                  <h3
-                    className={`font-display font-medium text-white whitespace-nowrap transition-all duration-300 ${
-                      isActive ? "text-2xl md:text-3xl [writing-mode:horizontal-tb] rotate-0" : "text-sm [writing-mode:vertical-rl] rotate-180"
-                    }`}
-                  >
+                  <h3 className={`font-display font-medium text-white whitespace-nowrap transition-all duration-300 ${isActive ? "text-2xl md:text-3xl [writing-mode:horizontal-tb] rotate-0" : "text-sm [writing-mode:vertical-rl] rotate-180"}`}>
                     {d.name}
                   </h3>
-                  <span
-                    className={`block text-xs text-slateSoft mt-1 transition-opacity duration-300 delay-100 ${
-                      isActive ? "opacity-100" : "opacity-0 h-0"
-                    }`}
-                  >
+                  <span className={`block text-xs text-slateSoft mt-1 transition-opacity duration-300 delay-100 ${isActive ? "opacity-100" : "opacity-0 h-0"}`}>
                     {d.country}
                   </span>
                 </div>
@@ -75,12 +63,10 @@ export default function CinematicHero() {
                   href={`/destinations/${d.slug}`}
                   data-cursor-hover
                   onClick={(e) => e.stopPropagation()}
-                  className={`flex-shrink-0 w-9 h-9 rounded-full bg-white/10 backdrop-blur flex items-center justify-center transition-all duration-300 hover:bg-mint hover:text-arctic ${
-                    isActive ? "opacity-100 scale-100" : "opacity-0 scale-75 pointer-events-none"
-                  }`}
+                  className={`flex-shrink-0 w-9 h-9 rounded-full bg-white/10 backdrop-blur flex items-center justify-center transition-all duration-300 hover:bg-mint hover:text-arctic ${isActive ? "opacity-100 scale-100" : "opacity-0 scale-75 pointer-events-none"}`}
                   aria-label={`View ${d.name}`}
                 >
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="7" y1="17" x2="17" y2="7" />
                     <polyline points="7 7 17 7 17 17" />
                   </svg>
