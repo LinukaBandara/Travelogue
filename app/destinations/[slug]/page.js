@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { use } from "react";
 import Link from "next/link";
 import { getDestination } from "@/lib/destinations";
 import { useDrawer } from "@/lib/DrawerContext";
 
-export default async function DestinationPage({ params }) {
-  const { slug } = await params;
+export default function DestinationPage({ params }) {
+  const { slug } = use(params);
   const destination = getDestination(slug);
   const { openDrawer } = useDrawer();
 
@@ -30,14 +31,11 @@ export default async function DestinationPage({ params }) {
       <section className="mx-auto max-w-6xl px-6 py-16 grid md:grid-cols-3 gap-12">
         <div className="md:col-span-2">
           <p className="text-slateSoft text-base leading-relaxed mb-10">{destination.description}</p>
-
           <h3 className="text-xs font-semibold text-slateSoft tracking-wide mb-5">HIGHLIGHTS</h3>
           <ul className="flex flex-col gap-3 mb-12">
             {destination.highlights.map((h, i) => (
               <li key={i} className="flex items-start gap-3 text-sm">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-shrink-0" aria-hidden="true">
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-shrink-0" aria-hidden="true"><polyline points="20 6 9 17 4 12" /></svg>
                 {h}
               </li>
             ))}
@@ -48,27 +46,14 @@ export default async function DestinationPage({ params }) {
             {destination.itinerary.map((day) => (
               <div key={day.day} className="flex gap-5">
                 <div className="flex-shrink-0 w-9 h-9 rounded-full bg-steel border border-white/10 flex items-center justify-center text-xs font-bold text-mint">{day.day}</div>
-                <div>
-                  <h4 className="text-sm font-semibold mb-1">{day.title}</h4>
-                  <p className="text-sm text-slateSoft leading-relaxed">{day.detail}</p>
-                </div>
+                <div><h4 className="text-sm font-semibold mb-1">{day.title}</h4><p className="text-sm text-slateSoft leading-relaxed">{day.detail}</p></div>
               </div>
             ))}
           </div>
 
           <div className="grid sm:grid-cols-2 gap-8">
-            <div>
-              <h3 className="text-xs font-semibold text-slateSoft tracking-wide mb-4">INCLUDED</h3>
-              <ul className="flex flex-col gap-2.5">
-                {destination.inclusions.map((inc, i) => <li key={i} className="text-sm text-slateSoft flex gap-2"><span className="text-mint">+</span>{inc}</li>)}
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-xs font-semibold text-slateSoft tracking-wide mb-4">NOT INCLUDED</h3>
-              <ul className="flex flex-col gap-2.5">
-                {destination.exclusions.map((exc, i) => <li key={i} className="text-sm text-slateSoft flex gap-2"><span className="text-slateSoft/50">–</span>{exc}</li>)}
-              </ul>
-            </div>
+            <div><h3 className="text-xs font-semibold text-slateSoft tracking-wide mb-4">INCLUDED</h3><ul className="flex flex-col gap-2.5">{destination.inclusions.map((inc, i) => <li key={i} className="text-sm text-slateSoft flex gap-2"><span className="text-mint">+</span>{inc}</li>)}</ul></div>
+            <div><h3 className="text-xs font-semibold text-slateSoft tracking-wide mb-4">NOT INCLUDED</h3><ul className="flex flex-col gap-2.5">{destination.exclusions.map((exc, i) => <li key={i} className="text-sm text-slateSoft flex gap-2"><span className="text-slateSoft/50">–</span>{exc}</li>)}</ul></div>
           </div>
         </div>
 
