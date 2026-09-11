@@ -18,15 +18,6 @@ export default function Footer() {
           <p className="text-sm text-slateSoft leading-relaxed max-w-[240px]">
             A cinematic way to plan a trip — curated destinations, real itineraries, one seamless booking flow.
           </p>
-          <a
-            href={ARK_II_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 mt-6 text-xs font-semibold text-white hover:text-mint transition-colors"
-          >
-            Crafted by ARK II
-            <span aria-hidden="true">↗</span>
-          </a>
         </div>
 
         <div>
@@ -63,7 +54,17 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-6xl px-6 py-5 flex flex-col sm:flex-row justify-between gap-2 text-xs text-slateSoft/70">
           <span>© 2026 Travelogue</span>
-          <span>Cinematic trip planning, done properly.</span>
+          <span>
+            A project by {" "}
+            <a
+              href={ARK_II_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-slateSoft transition-all duration-300 hover:text-mint hover:[text-shadow:0_0_18px_rgba(52,211,153,0.45)]"
+            >
+              ARK II
+            </a>
+          </span>
         </div>
       </div>
     </footer>
