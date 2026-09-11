@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="mx-auto max-w-6xl px-4 md:px-6 pt-6 pb-8 min-h-[calc(100svh-7rem)] flex flex-col">
-        <div className="max-w-xl mb-6 md:mb-7">
+      <section className="mx-auto max-w-6xl px-4 md:px-6 pt-6 pb-8 md:h-[calc(100svh-7rem)] md:min-h-0 flex flex-col">
+        <div className="max-w-xl mb-6 md:mb-7 shrink-0">
           <div className="text-xs font-semibold text-mint tracking-wide mb-4">SEVEN DESTINATIONS · ONE CINEMATIC ITINERARY</div>
           <h1 className="font-display text-4xl md:text-6xl font-medium leading-tight mb-5">
             Asia, <span className="text-mint">shot</span> like a film.
