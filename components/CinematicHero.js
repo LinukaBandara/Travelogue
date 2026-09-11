@@ -4,20 +4,18 @@ import { useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { destinations } from "@/lib/destinations";
-import { useDrawer } from "@/lib/DrawerContext";
 
 export default function CinematicHero() {
   const [activeSlug, setActiveSlug] = useState(destinations[0].slug);
-  const { openDrawer } = useDrawer();
 
   return (
-    <div>
-      <div className="flex items-baseline justify-between mb-5">
+    <div className="flex-1 min-h-0 flex flex-col">
+      <div className="flex items-baseline justify-between mb-3 shrink-0">
         <span className="text-xs text-slateSoft hidden md:inline">hover to explore</span>
         <span className="text-xs text-slateSoft md:hidden">swipe to explore</span>
       </div>
 
-      <div className="flex gap-1.5 h-[64vh] md:h-[60vh] overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+      <div className="flex-1 min-h-0 flex gap-1.5 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
         {destinations.map((d) => {
           const isActive = d.slug === activeSlug;
           return (
@@ -32,7 +30,7 @@ export default function CinematicHero() {
               data-cursor-hover
               animate={{ flex: isActive ? 5.2 : 1 }}
               transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-              className="relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 w-[78vw] md:w-auto snap-center bg-steel"
+              className="relative rounded-2xl overflow-hidden cursor-pointer flex-shrink-0 w-[78vw] md:w-auto min-h-[280px] md:min-h-0 snap-center bg-steel"
             >
               <motion.img
                 src={d.image}
