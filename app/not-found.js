@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <section className="min-h-[60vh] flex items-center justify-center px-6 text-center"><div><p className="text-xs font-semibold text-mint tracking-wide mb-4">404 · LOST FRAME</p><h1 className="font-display text-5xl md:text-7xl mb-5">This story isn't here.</h1><p className="text-slateSoft max-w-md mx-auto mb-8">The page you requested may have moved or never existed.</p><Link href="/" className="inline-flex rounded-full bg-mint text-arctic font-semibold px-6 py-3">Back to Travelogue</Link></div></section>}
